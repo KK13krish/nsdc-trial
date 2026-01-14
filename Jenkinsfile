@@ -15,13 +15,17 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                dir('welcome-react') {
+                    bat 'npm install'
+                }
             }
         }
 
         stage('Build React App') {
             steps {
-                sh 'npm run build'
+                dir('welcome-react') {
+                    bat 'npm run build'
+                }
             }
         }
     }
